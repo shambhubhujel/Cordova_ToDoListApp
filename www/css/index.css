@@ -1,148 +1,272 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    background: #fff !important;
-}
+@charset "UTF-8";
 
 body {
-    /* font-family: Lato, sans-serif; */
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.7;
-    font-size: 16px;
-    padding: 30px;
+  background: #edf0f1;
+  padding: 80px 0 0 0;
 }
 
+body, input, button {
+  font-family: 'Roboto', sans-serif;
+}
+
+.noFill {
+  fill: none;
+}
+#info   {
+  width: 100%;
+  height: 80px;
+
+  position: absolute;
+  padding: 15px;
+  top: 1px;
+  left: 0;
+  z-index: 5;
+  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+header {
+  width: 100%;
+  height: 80px;
+
+  
+  padding: 15px;
+  top: 1px;
+  left: 0;
+  z-index: 5;
+  background: #25b99a;
+  box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+header input {
+  width: 100%;
+  height: 50px;
+  float: left;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-indent: 18px;
+  padding: 0 60px 0 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px 25px 25px 5px;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+header input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input:-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input::-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+header button {
+  width: 50px;
+  height: 50px;
+
+  position:absolute;
+  top:auto;
+  right:15px;
+  z-index:2;
+
+  border-radius: 25px;
+  background: #fff;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+header button svg {
+  width: 16px;
+  height: 16px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: -8px 0 0 -8px;
+}
+
+header button svg .fill {
+  fill: #25b99a;
+}
 .current-date {
     margin-top: 1.5em;
     letter-spacing: 0.5px;
     margin-left: 1.5em;
 }
 
-.main {
-    border: 2px solid #777;
-    padding: 10px;
-    margin-top: 10px;
-    text-align: center;
+.container {
+  width: 100%;
+  float: left;
+  padding: 15px;
 }
 
-li {
-    list-style-type: none;
-    font-size: 2em;
+ul.todo {
+  width: 100%;
+  float: left;
 }
 
-.done {
-    text-decoration: line-through;
-    transition: all 0.5s ease !important;
-    color: #d5d6e1 !important;
+ul.todo li {
+  width: 100%;
+  min-height: 50px;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  line-height: 22px;
+
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+  margin: 0 0 10px 0;
+  padding: 14px 100px 14px 14px;
+  word-break: break-word;
 }
 
-.ui-header .ui-btn,
-.ui-footer .ui-btn {
-    width: 100%;
+ul.todo li:last-of-type {
+  margin: 0;
 }
 
-.todolist {
-    color: #6F808C;
-    height: 60px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 10px;
-    font-size: 16px;
-    padding-left: 10px;
+ul.todo li .buttons {
+  width: 100px;
+  height: 50px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-.footer__icon-add {
-    display: block;
+ul.todo li .buttons button {
+  width: 50px;
+  height: 50px;
+  float: left;
+  background: none;
+  position: relative;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
+ul.todo li .buttons button:last-of-type:before {
+  content: ' ';
+  width: 1px;
+  height: 30px;
+  background: #edf0f1;
 
-/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-
-
-/* Left transition */
-
-li.left {
-    -webkit-transition: -webkit-transform 250ms ease;
-    -webkit-transform: translateX(-100%);
-    -moz-transition: -moz-transform 250ms ease;
-    -moz-transform: translateX(-100%);
-    -o-transition: -o-transform 250ms ease;
-    -o-transform: translateX(-100%);
-    transition: transform 250ms ease;
-    transform: translateX(-100%);
+  position: absolute;
+  top: 10px;
+  left: 0;
 }
 
+ul.todo li .buttons button svg {
+  width: 22px;
+  height: 22px;
 
-/* Right transition */
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
-li.right {
-    -webkit-transition: -webkit-transform 250ms ease;
-    -webkit-transform: translateX(100%);
-    -moz-transition: -moz-transform 250ms ease;
-    -moz-transform: translateX(100%);
-    -o-transition: -o-transform 250ms ease;
-    -o-transform: translateX(100%);
-    transition: transform 250ms ease;
-    transform: translateX(100%);
+  margin: -11px 0 0 -11px;
 }
 
+ul.todo li .buttons button.complete svg {
+  border-radius: 11px;
+  border: 1.5px solid #25b99a;
 
-/* Border bottom for the previous button during the transition*/
-
-li.left a.ui-btn,
-li.right a.ui-btn {
-    border-top-width: 0;
-    border-left-width: 1px;
-    border-right-width: 1px;
+  transition: background 0.2s ease;
 }
 
-li a.ui-btn.border-bottom {
-    border-bottom-width: 1px;
+ul.todo#completed li .buttons button.complete svg {
+  background: #25b99a;
+  border: 0px;
 }
 
-
-/* Hide the delete button on touch devices */
-
-ul.touch li.ui-li-has-alt a.delete {
-    display: none;
+ul.todo:not(#completed) li .buttons button.complete:hover svg {
+  background: rgba(37, 185, 154, 0.75);
 }
 
-ul.touch li.ui-li-has-alt a.ui-btn {
-    margin-right: 0;
+ul.todo:not(#completed) li .buttons button.complete:hover svg .fill {
+  fill: #fff;
 }
 
-
-/* Styling for the popup */
-
-#confirm p {
-    text-align: center;
-    font-size: inherit;
-    margin-bottom: .75em;
+ul.todo#completed li .buttons button.complete svg .fill {
+  fill: #fff;
 }
 
-
-/* Custom Jquery Mobile */
-
-.ui-content {
-    padding: 0em 1em;
+ul.todo li .buttons button svg .fill {
+  transition: fill 0.2s ease;
 }
 
-.ui-input-search.ui-shadow-inset.ui-input-has-clear.ui-body-inherit.ui-corner-all {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    padding: 4px;
+ul.todo li .buttons button.remove svg .fill {
+  fill: #c0cecb;
 }
 
-.ui-input-search:after {
-    left: 0.61em;
+ul.todo li .buttons button.remove:hover svg .fill {
+  fill: #e85656;
 }
 
+ul.todo li .buttons button.complete svg .fill {
+  fill: #25b99a;
+}
 
-/* List item padding */
+ul.todo#completed {
+  position: relative;
+  padding: 60px 0 0 0;
+}
 
-.ui-listview>.ui-li-static {
-    padding: .1em 1em;
+ul.todo#completed:before {
+  content: 'Completed Tasks';
+  width: 150px;
+  height: 1px;
+  background: #d8e5e0;
+
+  position: absolute;
+  top: 30px;
+  left: 50%;
+
+  margin: 0 0 0 -75px;
+}
+
+ul.todo#todo:empty:after {
+  content: 'You have nothing to-do!';
+  margin: 15px 0 0 0;
+}
+
+ul.todo#completed:empty:after {
+  content: 'You have yet to complete any tasks.';
+}
+
+ul.todo#todo:after,
+ul.todo#completed:after {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
 }
