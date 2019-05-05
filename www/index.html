@@ -4,6 +4,7 @@
 <head>
 	<!-- Content Type Meta tag -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="msapplication-tap-highlight" content="no">
 
 	<!--Responsive Viewport Meta tag-->
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -18,6 +19,8 @@
 	<link rel="stylesheet" href="css/themes/cTheme.min.css" />
 	<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-1.11.1.js"></script>
 	<title>To-Do LIst App</title>
 </head>
 
@@ -26,6 +29,9 @@
 	<div data-role="page" id="page">
 		<header id="info">
 				<div class="current-date"></div>
+				<div class="geolocation ui-mini">
+					<!-- springvale 19C -->
+				</div>
 		</header>
 		<header>
 				<input type="text" placeholder="Enter an activity.." id="item">
@@ -51,7 +57,8 @@
 	</div>
 
 	<!-- JavaScripts -->
-	<script src="js/index.js"></script>
+	<script  src="js/index.js"></script>
+    
 </body>
 
 </html>

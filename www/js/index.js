@@ -11,6 +11,7 @@ var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem(
 
 renderTodoList();
 currentTime();
+getWeatherLocation();
 var app = {
   // Application Constructor
   initialize: function () {
@@ -68,7 +69,44 @@ function addItem(value) {
 
   data.todo.push(value);
   dataObjectUpdated();
-}
+};
+//To get Weather info of Location
+function getWeatherLocation() {
+  navigator.geolocation.getCurrentPosition(onWeatherSuccess, onWeatherError, { enableHighAccuracy: true });
+};
+function onWeatherSuccess(position) {
+  let Latitude = position.coords.latitude;
+  let Longitude = position.coords.longitude;
+  getWeather(Latitude, Longitude);
+};
+function getWeather(latitude, longitude) {
+  var OpenWeatherAppKey = "2bc747f5e9651c8e079b1f4c004e6aca";
+  const getGeolocation = document.querySelector('.geolocation');
+
+  var queryString =
+    'http://api.openweathermap.org/data/2.5/weather?lat=' +
+    latitude + '&lon=' + longitude + '&appid=' + OpenWeatherAppKey + '&units=metric';
+
+  jQuery.getJSON(queryString, function (results) {
+
+    if (results.weather.length) {
+
+      jQuery.getJSON(queryString, function (results) {
+
+        if (results.weather.length) {
+          getGeolocation.textContent = `${results.name} ${Math.round(results.main.temp)}C`;
+
+        }
+
+      });
+    }
+  }).fail(function () {
+    console.log("error getting location");
+  });
+};
+function onWeatherError(error) {
+  console.log('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+};
 //To get Date and Time
 function currentTime() {
   getDay();
